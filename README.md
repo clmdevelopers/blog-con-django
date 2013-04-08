@@ -1,7 +1,7 @@
 Blog con Django
 ===============
 
-Blog simple realizado con Django (RSS, archivos, tags) utlizando <a href="https://mariadb.org/" target="_blank">MariaDB</a> como base de datos.
+Blog simple realizado con Django (feed, archivos, tags) utlizando <a href="https://mariadb.org/" target="_blank">MariaDB</a> como base de datos.
 
 Para utilizar los tags se instala django-taggit <br/>
 <code>pip install django-taggit</code>
