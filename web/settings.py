@@ -132,7 +132,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'taggit',
     'blog',
+    'disqus',
 )
+
+DISQUS_API_KEY = 'ov12QVo5p4WmWVHz9v9MVIIWhwBLFaePhEFuqpDOeajtvbcUnCXqT8njfdFWLFc0' #reemplazalo por el tuyo
+
+DISQUS_WEBSITE_SHORTNAME = 'prueba'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
