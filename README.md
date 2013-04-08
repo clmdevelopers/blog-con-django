@@ -8,5 +8,4 @@ Para utilizar los tags se instala django-taggit <br/>
 
 Además se ha utilizado el un template free Dropetrope, puedes verlo y descargarlo en el siguiente enlace http://html5up.net/dopetrope/ 
 
-Para los comentarios se usamos Disqus:
-<script src="https://gist.github.com/lavaldi/5338889.js"></script>
+Para los comentarios se usamos Disqus
