@@ -1,9 +1,11 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Post(models.Model):
 	title	= models.CharField(max_length=100)
+	body 	= RichTextField()
 	body 	= models.TextField()
 	created = models.DateTimeField()
 	taggs 	= TaggableManager()
