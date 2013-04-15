@@ -1,7 +1,14 @@
 Blog con Django
 ===============
 
-Blog simple realizado con Django (feed, archivos, tags y comentarios) utlizando <a href="https://mariadb.org/" target="_blank">MariaDB</a> como base de datos.
+Blog simple realizado con Django:
+- feed
+- paginación
+- páginas estáticas
+- archivos
+- tags
+- comentarios
+utlizando <a href="https://mariadb.org/" target="_blank">MariaDB</a> como base de datos.
 
 Para utilizar los tags se instala django-taggit <br/>
 <code>pip install django-taggit</code>
@@ -25,3 +32,5 @@ INSTALLED_APPS = ( <br/>
 
 - Y por último, agregamos la URL de CKEDITOR en urls.py:<br/>
 <code>(r'^ckeditor/', include('ckeditor.urls')),</code>
+
+PD: Faltan arreglar búsqueda y las vistas por categoría.
