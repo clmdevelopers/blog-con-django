@@ -8,6 +8,7 @@ Blog simple realizado con Django:
 - archivos
 - tags
 - comentarios
+
 utlizando <a href="https://mariadb.org/" target="_blank">MariaDB</a> como base de datos.
 
 Para utilizar los tags se instala django-taggit <br/>
