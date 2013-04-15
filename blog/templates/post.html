@@ -1,25 +1,34 @@
 {% extends "base.html" %}
 
+{% block titulo %}
+	{{ entradas.titulo }} | Mi Blog
+{% endblock %}
+
 {% block content %}
 
 <article class="box is-post">
 	<header>
-		<h2><a href="/blog/{{post.id}}">{{ post.title }}</a></h2>
-		<span class="byline"></span>
+		<h2><a href="{{entradas.get_absolute_url}}">{{ entradas.titulo }}</a></h2>
+		<span class="byline">
+			el {{ entradas.fecha }}
+			 por {{ entradas.autor }}
+			<br/>
+			Categorias: 
+			{% for categoria in entradas.categoria.all %}
+				<a href="{{categoria.get_absolute_url}}">{{ categoria }}</a>
+				{% if not forloop.last %}, {% endif %}
+			{% endfor %}
+		</span>
 	</header>
 	<section>
-		<div class="post_meta">
-			on {{ post.created }}
-		</div>
-	</section>
-	<section>
 		<div class="post_body">
-			{{ post.body|safe|linebreaks }}
+			{{ entradas.contenido|safe|linebreaks }}
 		</div>
 	</section>
 	<section>
 		<div class="tags">
-			{% for tag in post.taggs.all %}
+			Tags: 
+			{% for tag in entradas.tags.all %}
 				<a href="/blog/tag/{{tag}}">{{tag}}</a>
 				{% if not forloop.last %}, {% endif %}
 			{% endfor %}

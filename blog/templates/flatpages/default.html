@@ -1,18 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <article class="box is-post">
 	<header>
-		<h2>Archivos</h2>
+		<h2>{{ flatpage.title }}</h2>
 		<span class="byline"></span>
 	</header>
 	<section>
-		{% for post in object_list %}
-
-			<p>{{ post.fecha|date:"Y-m-d" }}: <a href="{{post.get_absolute_url}}">{{ post }}</a></p>
-
-		{% endfor %}
+		{{ flatpage.content }}
 	</section>
 </article>
 

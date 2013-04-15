@@ -1,0 +1,8 @@
+<header>
+	<h2>Entradas Recientes</h2>
+</header>
+<ul class="divided">
+	{% for post in ultimas_entradas %}
+		<li><a href="{{post.get_absolute_url}}">{{post}}</a></li>
+	{% endfor %}
+</ul>

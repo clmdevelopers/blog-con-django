@@ -1,39 +1,28 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import ListView, DetailView
 from blog.models import Post
-from django.contrib.syndication.views import Feed
-
-class BlogFeed(Feed):
-	title		= "Mi Blog"
-	description = "Blog sobre cosas"
-	link 		= "/blog/feed"
-
-	def items(self):
-		return Post.objects.all().order_by("-created")[:10]
-
-	def item_title(self, item):
-		return item.title
-
-	def item_description(self, item):
-		return item.body
-
-	def item_link(self, item):
-		return u"/blog/%d" % item.id
-		
+from blog.feeds import RssEntradas, AtomSiteNewsFeed
+from blog.views import ListaCategorias
 
 urlpatterns = patterns('blog.views',
     url(r'^$', ListView.as_view(
-    	queryset = Post.objects.all().order_by("-created")[:10],
-    	template_name = "blog.html"
-    	)),
-    url(r'^(?P<pk>\d+)$', DetailView.as_view(
-    	model = Post,
-    	template_name="post.html"
-    	)),
+        model               = Post,
+        context_object_name = 'entradas',
+        template_name       = 'blog.html',
+        paginate_by = 10,
+    )),
+    url(r'^feed/$', RssEntradas()),
+    url(r'^atom/$', AtomSiteNewsFeed()),
+    url(r'^buscar/$','buscar'),
     url(r'^archivos/$', ListView.as_view(
-    	queryset=Post.objects.all().order_by("-created"),
-    	template_name="archivos.html"
+        queryset        = Post.objects.all().order_by("-fecha"),
+    	template_name   = "archivos.html",
     	)),
     url(r'^tag/(?P<tag>\w+)$', 'tagpage'),
-    url(r'^feed/$', BlogFeed()),
+    url(r'^categoria/(?P<slug>[^\.]+)/', ListaCategorias.as_view(), name = 'categorias'),
+    url(r'^(?P<slug>[^\.]+)/', DetailView.as_view(
+        model               = Post,
+        context_object_name = 'entradas',
+        template_name       = 'post.html',
+    ), name = 'entradas'),
 )

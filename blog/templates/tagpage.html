@@ -10,7 +10,7 @@
 	<section>
 		{% for post in posts %}
 
-		<p>{{ post.created|date:"Y-m-d" }}: <a href="/blog/{{post.id}}">{{ post.title }}</a></p>
+		<p>{{ post.fecha|date:"Y-m-d" }}: <a href="{{post.get_absolute_url}}">{{ post.titulo }}</a></p>
 
 		{% endfor %}
 	</section>

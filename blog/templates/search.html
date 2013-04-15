@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	Búsqueda {% if query %} Resultados {% endif %}
+{% endblock %}
+
+{% block content %}
+	<article class="box is-post">
+		<header>
+			<h2>Buscar</h2>
+			<span class="byline"></span>
+		</header>
+		<section>
+			<form action="." method="GET">
+				<label for="q">Buscar:</label>
+				<input type="text" name="q" value="{{ query|escape}}">
+				<input type="submit" value="Buscar">
+			</form>
+		</section>
+		{% if query %}
+		<section>
+			<header>
+				<h3>Resultados para "{{ query|escape }}":</h3>
+			</header>
+			{% if results %}
+				{% for entradas in results %}
+					<p><a href="{{entradas.get_absolute_url}}">{{ entradas|escape }}</a></p>
+				{% endfor %}
+			{% else %}
+				<p>No se encontraron entradas para {{ query|escape }}</p>
+			{% endif %}
+		</section>
+		{% endif %}
+	</article>	
+{% endblock %}

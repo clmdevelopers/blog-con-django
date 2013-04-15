@@ -1,0 +1,8 @@
+<header>
+	<h2>Categorías Recientes</h2>
+</header>
+<ul class="divided">
+	{% for cat in ultimas_categorias %}
+		<li><a href="{{cat.get_absolute_url}}">{{cat}}</a></li>
+	{% endfor %}
+</ul>
