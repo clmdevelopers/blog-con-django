@@ -34,4 +34,4 @@ INSTALLED_APPS = ( <br/>
 - Y por último, agregamos la URL de CKEDITOR en urls.py:<br/>
 <code>(r'^ckeditor/', include('ckeditor.urls')),</code>
 
-PD: Faltan arreglar búsqueda y las vistas por categoría.
+Finish!
